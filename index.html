@@ -219,6 +219,20 @@
     .animate-marquee {
       animation: marquee 30s linear infinite;
     }
+
+    @media (max-width: 768px) {
+        .animate-marquee {
+          animation: marqueeMobile 60s linear infinite; /* Slower animation for mobile */
+        }
+        @keyframes marqueeMobile {
+          0% {
+            transform: translateX(100%);
+          }
+          100% {
+            transform: translateX(-100%);
+          }
+        }
+      }
   </style>
 </section>
 
