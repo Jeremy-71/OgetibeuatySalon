@@ -50,6 +50,29 @@
     .animate-bounce {
       animation: bounce 2s infinite;
     }
+
+    select option:hover {
+      background-color: #f9a8d4; /* Light pink hover effect */
+      color: white; /* Text color on hover */
+    }
+
+    .popup-option {
+      position: relative;
+    }
+
+    .popup-option:hover::after {
+      content: attr(value);
+      position: absolute;
+      top: -30px;
+      left: 0;
+      background-color: #eaeaea89;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 5px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      white-space: nowrap;
+      z-index: 10;
+    }
   </style>
 </head>
 <body class="font-sans bg-white text-gray-800">
@@ -196,12 +219,21 @@
       </div>
 
       <div>
+        <label for="Phone" class="block font-semibold mb-1">Phone Number</label>
+        <input type="text" id="Phone" name="Phone" required class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-pink-400">
+      </div>
+
+      <div>
         <label for="service" class="block font-semibold mb-1">Service</label>
-        <select id="service" name="service" required class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-pink-400">
-          <option value="">Select a service</option>
-          <option value="Bridal Makeup">Bridal Makeup</option>
-          <option value="Party Glam">Party Glam</option>
-          <option value="Natural Look">Natural Look</option>
+        <select id="service" name="service" required class="w-full border border-gray-300 rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-pink-400 bg-pink-100">
+          <option value="" class="popup-option">Select a service</option>
+          <option value="Bridal Makeup" class="popup-option">Bridal Makeup</option>
+          <option value="Party Glam" class="popup-option">Party Glam</option>
+          <option value="Natural Look" class="popup-option">Natural Look</option>
+          <option value="Entertaiment" class="popup-option">Film, TV & Theater Makeup</option>
+          <option value="Graduation Makeup" class="popup-option">Graduation Makeup</option>
+          <option value="Special Occasion" class="popup-option">Special Occasion Makeup</option>
+          <option value="Photoshoot Makeup" class="popup-option">Photoshoot Makeup</option>
         </select>
       </div>
 
