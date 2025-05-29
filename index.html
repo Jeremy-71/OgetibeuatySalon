@@ -8,7 +8,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="styles.css">
 </head>
-<body class="font-sans bg-white text-gray-800">
+<body>
 
   <header class="bg-white shadow-md sticky top-0 z-50 transition duration-300">
     <div class="container mx-auto flex justify-between items-center px-4 py-3">
@@ -26,13 +26,66 @@
     </div>
   </header>
 
-  <section class="bg-gradient-to-r from-pink-100 to-pink-300 min-h-screen flex flex-col items-center justify-center px-4 text-center relative overflow-hidden">
-    <div class="absolute top-0 left-0 w-32 h-32 bg-white opacity-20 rounded-full animate-bounce"></div>
-    <h1 class="text-4xl md:text-6xl font-bold mb-4 animate-fade-in">Welcome to Ogeti Beauty Studio</h1>
-    <p class="text-lg md:text-xl mb-6 animate-slide-up">Enhancing natural beauty with every brush stroke. Book your glow today.</p>
-    <a href="#services" class="bg-pink-500 text-white px-6 py-3 rounded-full shadow-md hover:bg-pink-600 transition duration-300 animate-bounce">
+  <section class="relative min-h-screen flex flex-col items-center justify-center px-4 text-center overflow-hidden bg-gradient-to-r from-pink-100 to-pink-300"
+  > 
+  
+    <!-- Animated circular images background -->
+    <div class="absolute inset-0 pointer-events-none ">
+      <div class="orbit-container w-full h-full absolute top-0 left-0">
+        <img src="my-project/nails/112 Insanely Good Nail Art Ideas To Try At Your Next Appointment (1).jpg" alt="" class="orbit-img absolute w-16 h-16 rounded-full shadow-lg" style="--i:0;">
+        <img src="my-project/nails/112 Insanely Good Nail Art Ideas To Try At Your Next Appointment.jpg" alt="" class="orbit-img absolute w-19 h-19 rounded-full shadow-lg" style="--i:1;">
+        <img src="my-project/nails/download.jpg" alt="" class="orbit-img absolute w-18 h-18 rounded-full shadow-lg" style="--i:2;">
+        <img src="my-project/nails/112 Insanely Good Nail Art Ideas To Try At Your Next Appointment (1).jpg" alt="" class="orbit-img absolute w-16 h-16 rounded-full shadow-lg" style="--i:3;">
+        <img src="my-project/nails/Stunning, transparent nail design with red butterflies and gems.jpg" alt="" class="orbit-img absolute w-16 h-16 rounded-full shadow-lg" style="--i:4;">
+      </div>
+    </div>
+    <h1 class="text-4xl md:text-6xl font-bold mb-4 relative z-10 animate-fade-in">Welcome to Ogeti Beauty Studio</h1>
+    <p class="text-lg md:text-xl mb-6 relative z-10 animate-slide-up">Enhancing natural beauty with every brush stroke. Book your glow today.</p>
+    <a href="#services" class="bg-pink-500 text-white px-6 py-3 rounded-full shadow-md hover:bg-pink-600 transition duration-300 animate-bounce relative z-10">
       Explore Services
     </a>
+    <style>
+      .orbit-container {
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        top: 0; left: 0;
+        pointer-events: none;
+      }
+      .orbit-img {
+        top: 50%; left: 50%;
+        transform: translate(-50%, -50%);
+        animation: orbit 16s linear infinite;
+        width: 7.5%; /* Reduced size */
+        height: auto;
+      }
+      .orbit-img:nth-child(1) { animation-delay: 0s; }
+      .orbit-img:nth-child(2) { animation-delay: 3.2s; }
+      .orbit-img:nth-child(3) { animation-delay: 6.4s; }
+      .orbit-img:nth-child(4) { animation-delay: 9.6s; }
+      .orbit-img:nth-child(5) { animation-delay: 12.8s; }
+      @keyframes orbit {
+        0% {
+          transform: translate(-50%, -50%) rotate(0deg) translateX(220px) rotate(0deg);
+        }
+        100% {
+          transform: translate(-50%, -50%) rotate(360deg) translateX(220px) rotate(-360deg);
+        }
+      }
+      @media (max-width: 768px) {
+        .orbit-img {
+          animation: orbitMobile 16s linear infinite;
+        }
+        @keyframes orbitMobile {
+          0% {
+            transform: translate(-50%, -50%) rotate(0deg) translateX(100px) rotate(0deg);
+          }
+          100% {
+            transform: translate(-50%, -50%) rotate(360deg) translateX(100px) rotate(-360deg);
+          }
+        }
+      }
+    </style>
   </section>
 
   <section id="services" class="bg-white py-12 px-6">
@@ -101,10 +154,31 @@
         </div>
       </div>
       <div class="bg-white p-6 rounded-lg shadow w-[300px] flex items-center space-x-4">
-        <img src="my-project/client4.png" alt="Tigist" class="w-16 h-16 rounded-full object-cover">
+        <img src="my-project/miss-leyu.jpg" alt="Tigist" class="w-16 h-16 rounded-full object-cover">
         <div class="text-sm">
-          <p class="break-words">“Simply the best in town. Will definitely come back.”</p>
-          <p class="mt-2 font-semibold">– Tigist M.</p>
+            <p class="break-words">“Ogeti’s attention to detail is unmatched. Highly recommend!”</p>
+          <p class="mt-2 font-semibold">– leyu M.</p>
+        </div>
+      </div>
+      <div class="bg-white p-6 rounded-lg shadow w-[300px] flex items-center space-x-4">
+        <img src="my-project/mahider.jpg" alt="Tigist" class="w-16 h-16 rounded-full object-cover">
+        <div class="text-sm">
+            <p class="break-words">“She listened to exactly what I wanted and delivered perfectly. Thank you!”</p>
+          <p class="mt-2 font-semibold">– Mahider K.</p>
+        </div>
+      </div>
+      <div class="bg-white p-6 rounded-lg shadow w-[300px] flex items-center space-x-4">
+        <img src="my-project/selome.jpg" alt="Tigist" class="w-16 h-16 rounded-full object-cover">
+        <div class="text-sm">
+            <p class="break-words">“Her work exceeded my expectations. Highly satisfied!”</p>
+          <p class="mt-2 font-semibold">– Selome B.</p>
+        </div>
+      </div>
+      <div class="bg-white p-6 rounded-lg shadow w-[300px] flex items-center space-x-4">
+        <img src="my-project/sifan.jpg" alt="Tigist" class="w-16 h-16 rounded-full object-cover">
+        <div class="text-sm">
+            <p class="break-words">“Her creativity and professionalism are unmatched. Highly recommended!”</p>
+          <p class="mt-2 font-semibold">– Sifan K.</p>
         </div>
       </div>
     </div>
