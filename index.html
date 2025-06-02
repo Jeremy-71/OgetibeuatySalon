@@ -16,22 +16,60 @@
         <img src="my-project/ogeti.png" alt="Ogeti Logo" class="h-20 w-20 rounded-full shadow-md">
         <span class="text-2xl font-extrabold text-pink-600">Ogeti Beauty Studio</span>
       </div>
+      <!-- Desktop Navigation -->
       <nav class="space-x-4 hidden md:block">
         <a href="#services" class="hover:text-pink-500 transition duration-300">Services</a>
         <a href="#gallery" class="hover:text-pink-500 transition duration-300">Gallery</a>
         <a href="#contact" class="hover:text-pink-500 transition duration-300">Contact</a>
         <a href="#testimonials" class="hover:text-pink-500 transition duration-300">Testimonials</a>
-        <a href="#blog" class="hover:text-pink-500 transition duration-300">Book Now</a>
+        <a href="#booking" class="hover:text-pink-500 transition duration-300">Book Now</a>
       </nav>
+
+      <!-- Mobile Hamburger (moved to right) -->
+      <!-- <div class="md:hidden flex-1 flex justify-end i">
+        <button id="mobile-menu-button" class="focus:outline-none">
+          <svg class="w-8 h-8 text-pink-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div> -->
+
+      <!-- Mobile Menu (right-side panel, not full screen) -->
+      <div id="mobile-menu" class="fixed top-0 right-0 h-full w-64 bg-white shadow-lg z-50 flex flex-col items-start pt-8 pl-8 space-y-6 text-xl font-semibold text-pink-600 hidden transition-all duration-300">
+        <button id="close-mobile-menu" class="absolute top-4 right-4 text-3xl text-pink-600 focus:outline-none">&times;</button>
+        <a href="#services" class="hover:text-pink-500 transition duration-300" onclick="closeMobileMenu()">Services</a>
+        <a href="#gallery" class="hover:text-pink-500 transition duration-300" onclick="closeMobileMenu()">Gallery</a>
+        <a href="#contact" class="hover:text-pink-500 transition duration-300" onclick="closeMobileMenu()">Contact</a>
+        <a href="#testimonials" class="hover:text-pink-500 transition duration-300" onclick="closeMobileMenu()">Testimonials</a>
+        <a href="#booking" class="hover:text-pink-500 transition duration-300" onclick="closeMobileMenu()">Book Now</a>
+      </div>
+      <script>
+        const menuBtn = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeBtn = document.getElementById('close-mobile-menu');
+        function closeMobileMenu() {
+          mobileMenu.classList.add('hidden');
+        }
+        menuBtn.addEventListener('click', () => {
+          mobileMenu.classList.remove('hidden');
+        });
+        closeBtn.addEventListener('click', closeMobileMenu);
+      </script>
     </div>
   </header>
 
-  <section class="relative min-h-screen flex flex-col items-center justify-center px-4 text-center overflow-hidden bg-gradient-to-r from-pink-100 to-pink-300"
-  > 
-  
+  <section class="relative min-h-screen flex flex-col items-center justify-center px-4 text-center overflow-hidden"
+    style="background: url('my-project/icons/bg-img.png') center center/cover no-repeat;"> 
+    <style>
+      @media (max-width: 768px) {
+        section[style] {
+          background-image: url('my-project/icons/bg-img-mobile.png') !important;
+        }
+      }
+    </style>
     <!-- Animated circular images background -->
     <div class="absolute inset-0 pointer-events-none ">
-      <div class="orbit-container w-full h-full absolute top-0 left-0">
+      <div class="orbit-container w-full h-full absolute top-0 left-0 opacity-55">
         <img src="my-project/nails/112 Insanely Good Nail Art Ideas To Try At Your Next Appointment (1).jpg" alt="" class="orbit-img absolute w-16 h-16 rounded-full shadow-lg" style="--i:0;">
         <img src="my-project/nails/112 Insanely Good Nail Art Ideas To Try At Your Next Appointment.jpg" alt="" class="orbit-img absolute w-19 h-19 rounded-full shadow-lg" style="--i:1;">
         <img src="my-project/nails/download.jpg" alt="" class="orbit-img absolute w-18 h-18 rounded-full shadow-lg" style="--i:2;">
@@ -39,11 +77,13 @@
         <img src="my-project/nails/Stunning, transparent nail design with red butterflies and gems.jpg" alt="" class="orbit-img absolute w-16 h-16 rounded-full shadow-lg" style="--i:4;">
       </div>
     </div>
-    <h1 class="text-4xl md:text-6xl font-bold mb-4 relative z-10 animate-fade-in text-gray-700">Welcome to Ogeti Beauty Studio</h1>
-    <p class="text-lg md:text-xl mb-6 relative z-10 animate-slide-up">Making you feel your best for every occasion. Book your appointment today.</p>
-    <a href="#services" class="bg-pink-500 text-white px-6 py-3 rounded-full shadow-md hover:bg-pink-600 transition duration-300 animate-bounce relative z-10">
-      Explore Services
-    </a>
+    <div class="relative z-10 flex flex-col items-center justify-center w-full h-full min-h-[60vh] min-h-mobile">
+      <!-- <h1 class="text-4xl md:text-6xl font-bold mb-4 animate-fade-in text-white  px-4 py-2 rounded-lg">Welcome to Ogeti Beauty Studio</h1>
+      <p class="text-lg md:text-xl mb-6 animate-slide-up text-white  px-4 py-2 rounded-lg">Making you feel your best for every occasion. Book your appointment today.</p>
+      <a href="#services" class="bg-pink-500 text-white px-6 py-3 rounded-full shadow-md hover:bg-pink-600 transition duration-300 animate-bounce">
+        Explore Services
+      </a> -->
+    </div>
     <style>
       .orbit-container {
         width: 100vw;
@@ -56,7 +96,7 @@
         top: 50%; left: 50%;
         transform: translate(-50%, -50%);
         animation: orbit 16s linear infinite;
-        width: 7.5%; /* Reduced size */
+        width: 7.5%;
         height: auto;
       }
       .orbit-img:nth-child(1) { animation-delay: 0s; }
@@ -74,7 +114,7 @@
       }
       @media (max-width: 768px) {
         .orbit-img {
-          width: 22%; /* Further increased size for mobile */
+          width: 22%;
           height: auto;
           animation: orbitMobile 16s linear infinite;
         }
@@ -85,6 +125,11 @@
           100% {
             transform: translate(-50%, -50%) rotate(360deg) translateX(100px) rotate(-360deg);
           }
+        }
+        /* Use a custom class name for min-height override on mobile */
+        .min-h-mobile {
+          min-height: 40vh;
+          min-width: 100vh;
         }
       }
     </style>
@@ -142,7 +187,8 @@
     </div>
   </section>
 
-<section id="testimonials" class="bg-pink-100 py-12 px-6 overflow-hidden">
+<section id="testimonials" class="bg-pink-100 py-12 px-6 overflow-hidden" >
+ <!-- style="background: url('my-project/icons/bg-img.png') center center/cover no-repeat;"> -->
   <h2 class="text-3xl font-bold text-center mb-8 text-pink-600">Testimonials</h2>
   <div class="relative w-full overflow-hidden">
     <div class="flex space-x-6 animate-marquee w-max">
